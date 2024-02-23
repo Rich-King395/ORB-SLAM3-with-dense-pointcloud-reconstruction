@@ -156,15 +156,19 @@ void SlamDataPub::CloudPointMappingPub()
         if (globalCloud->points.size() > 0)
         {
             pcl::PCLPointCloud2 pcl_pc1;
+
             pcl::toPCLPointCloud2(*globalCloud, pcl_pc1);    // pcl::PointXYZRGB -> pcl::PCLPointCloud2
+
             pcl_conversions::fromPCL(pcl_pc1, allMapPoints);  // pcl::PCLPointCloud2 -> sensor_msgs::PointCloud2
+
             allMapPoints.header.frame_id = "ground";  
+            
             allMapPoints.header.stamp = ros::Time::now();  
 
             //cout << "globalCloud->points.size()=" << globalCloud->points.size() << endl;
             CloudPoint_pub_.publish(allMapPoints);
         }
-
+        //pcl::io::savePCDFileBinary("vslam.pcd", *globalCloud);   // 只需要加入这一句
         if(CheckFinish())
             break;  
         usleep(mT*1000 / 2); 

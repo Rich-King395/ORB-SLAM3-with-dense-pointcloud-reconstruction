@@ -56,20 +56,18 @@ include_directories(
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 
-find_package(OpenCV 4.2)
+find_package(OpenCV 3.4.15 QUIET)
+if(NOT OpenCV_FOUND)
+   find_package(OpenCV 2.4.3 QUIET)
    if(NOT OpenCV_FOUND)
-      message(FATAL_ERROR "OpenCV > 4.4 not found.")
+      message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
    endif()
+endif()
 
-MESSAGE("OPENCV VERSION:")
-MESSAGE(${OpenCV_VERSION})
-
-find_package(Eigen3 3.3.7 REQUIRED)
-#include_directories("/home/spurs/installed/include/eigen3")
-
+find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 find_package(realsense2)
-find_package( PCL 1.13.0 REQUIRED )
+find_package( PCL 1.7 REQUIRED )
 
 
 include_directories(
@@ -183,7 +181,6 @@ add_executable(ros_stereo
 target_link_libraries(ros_stereo 
 ${PROJECT_NAME}
 )
-
 
 add_executable(ros_rgbd_mapping
         Examples/ROS/ros_rgbd_mapping.cc)

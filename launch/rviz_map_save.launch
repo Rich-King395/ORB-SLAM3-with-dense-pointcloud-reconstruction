@@ -1,0 +1,4 @@
+<launch>
+    <node name="map_save" pkg="map_server" type="map_saver" args="map:=/projected_map -f ~/simulation_ws/src/ORB_SLAM3_ROS/map/GridMap" />
+</launch>
+

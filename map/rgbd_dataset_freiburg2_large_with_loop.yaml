@@ -1,0 +1,7 @@
+image: /home/rich/simulation_ws/src/ORB_SLAM3_ROS/map/rgbd_dataset_freiburg2_large_with_loop.pgm
+resolution: 0.100000
+origin: [-17.500001, -9.200000, -nan]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

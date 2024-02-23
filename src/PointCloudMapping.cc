@@ -4,7 +4,7 @@
 namespace ORB_SLAM3 {
 
 PointCloudData::PointCloudData(){
-    cloud = std::make_shared<PointCloud>();
+   auto cloud = std::make_shared<PointCloud>();
 }
 
 PointCloudData::~PointCloudData()

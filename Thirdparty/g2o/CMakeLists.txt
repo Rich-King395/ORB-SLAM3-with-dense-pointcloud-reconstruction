@@ -70,7 +70,7 @@ SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${g2o_C_FLAGS}")
 
 # Find Eigen3
 #SET(EIGEN3_INCLUDE_DIR ${G2O_EIGEN3_INCLUDE})
-FIND_PACKAGE(Eigen3 3.3.7 REQUIRED)
+FIND_PACKAGE(Eigen3 3.1.0 REQUIRED)
 
 #include_directories("/home/spurs/installed/include/eigen3")
 
